@@ -19,11 +19,15 @@ function Stocks() {
   }, []);
   
   
+  // const stock = {
+  //   color: "white",
+  //   backgroundColor: "black"
+  //   fontSize: 24,
+  // }
   
   return (
     <div className="stocks-app">
-      <h1>Stocks</h1>
-
+      <h1 style={stockNamesStyles}>Stocks</h1>
       {stockNames.map((indStock, index) => {
         return <StocksInfo {...indStock} key={index} />;
       })}

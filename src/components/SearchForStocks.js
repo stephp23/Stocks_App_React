@@ -23,11 +23,13 @@ function FindDifferentStocks({ setStockNames, stockNames }) {
     return (
       <div className="stock-search">
         <input
+              type="text"
               onChange={StockDataChange}
               value={searchDifferentStock}
               placeholder="Search">
         </input>
-        <button onClick={StockDataChangeInput}>Search</button>
+        <button type="submit"
+          onClick={StockDataChangeInput}>Search</button>
       </div>
 	);
 }

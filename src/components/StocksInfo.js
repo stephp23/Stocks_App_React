@@ -18,13 +18,40 @@ function StocksInfo({ symbol, companyName, close, changePercent }) {
   // console.log(percentageColor);
   // console.log(changePercent) 
   
+  const stylesSymbolName = {
+    color: "white",
+    backgroundColor: "black",
+    fontSize:"24px"
+
+  }
+
+  const stylesCompanyName = {
+    color: "gray",
+    backgroundColor: "black",
+    fontSize:"18px",
+  }
+
+  const stylesClosingPrice = {
+    color: "white",
+    backgroundColor: "black",
+    fontSize: "22px"
+
+  }
+
+  const stylesPercentChange = {
+    color: "blue",
+    backgroundColor: "black",
+    fontSize: "22px",
+  }
+
+
   return (
       <div className="stock-name">
-        <h2 color="white"> ${symbol} </h2>
-        <h3 className="stockNameCompany">{companyName} </h3>
+        <h2 style={stylesSymbolName}> ${symbol} </h2>
+        <h3 style={stylesCompanyName}> {companyName} </h3>
       <div className="stock-marketStanding">
-        <h3 className="stock-marketValue">{close}</h3>
-        <h3 style={{  backgroundColor: "red" } }>${changePercent}</h3>
+        <h3 style={stylesClosingPrice}>{close}</h3>
+        <h3 style={stylesPercentChange}>${changePercent}</h3>
       </div>
       </div>
     

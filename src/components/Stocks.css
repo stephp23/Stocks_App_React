@@ -1,14 +1,12 @@
-.stock-app {
-  background-color: black;
+.app-header {
+  background-color: rgb(38, 37, 37);
 
 }
 
-.stock-name {
-  background-color: black;
+.ap-title {
+  color: white;
+  text-align: left;
+  font-size: 22px;
 
 }
 
-.marketStanding {
-  background-color: black;
-
-}
