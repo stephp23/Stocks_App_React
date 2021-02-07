@@ -1,43 +1,36 @@
-import {useState, useEffect} from "react"
-import axios from "axios";
-import {SEARCH_ADVICE_URL} from '../Constants'
-import Advice from './Advice'
-​
-export default function SearchButton() {
-​
-    const [searchData, setSearchData] = useState([]);
-    const [searchInput, setSearchInput] = useState('');
-​
-    const handleChange = (event) => {
-        setSearchInput(event.target.value)
-    }
-​
-    const fetchData = async () => {
-        try {
-            const response = await axios.get(`${SEARCH_ADVICE_URL}${searchInput}`);
-            setSearchData(response.data.slips)
-        }
-        catch (err) {
-            console.log('Error', err)
-        }
-    }
-​
-    useEffect(() => {
-        fetchData();
-    }, [])
-​
-    return (
-        <div>
-            <h1>Search For Advice</h1>
-            <input onChange={handleChange} />
-            <button onClick={fetchData}>Search</button>
-​
-            <ul style={{ marginTop: 25 }}>
-                {searchData ? searchData.map((item, index) => {
-                    const { advice } = item;
-                    return  <Advice advice={advice} key={index} />;
-                }) : ""}
-            </ul>
-        </div>
-	);
+import { useEffect, useState } from "react";
+import FetchStocksInfo from "../services/FetchStocks";
+import StocksInfo from "../components/StocksInfo";
+import FindDifferentStocks from "../components/SearchForStocks";
+
+
+function Stocks() {
+  const [stockNames, setStockNames] = useState([]);
+  
+  console.log(stockNames);
+
+  useEffect(() => { ( async () => {
+      const NASDAQ = await FetchStocksInfo("ndaq");
+      const SPY = await FetchStocksInfo("spy");
+      const FB = await FetchStocksInfo("fb");
+      const SNAP = await FetchStocksInfo("snap");
+      setStockNames([NASDAQ, SPY, FB, SNAP]);
+    })();
+  }, []);
+  
+  
+  
+  return (
+    <div className="stocks-app">
+      <h1>Stocks</h1>
+
+      {stockNames.map((indStock, index) => {
+        return <StocksInfo {...indStock} key={index} />;
+      })}
+
+      <FindDifferentStocks stockNames={stockNames} setStockNames={setStockNames} />
+    </div>
+  );
 }
+
+export default Stocks;

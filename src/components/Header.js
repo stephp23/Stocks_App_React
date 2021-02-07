@@ -1,9 +1,12 @@
-const Header = () => {
-  return (
-    <div>
-      <h1>Korilla</h1>
-    </div>
-  )
-}
+// import React from "react";
+// import styles from "../components/Header.css";
 
-export default Header;
+// function Header() {
+//   return (
+//     <header className="app-header">
+//       <h1 className="app-title"></h1>
+//     </header>
+//   )
+// };
+
+// export default Header;
