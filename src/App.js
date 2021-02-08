@@ -1,22 +1,12 @@
 import './App.css';
-import { useState } from "react";
-import Receipt from "./components/Receipt";
-import receiptsData from "./data/recordsReceipts";
 import Header from "./components/Header";
+import Stocks from "./components/Stocks";
 
 function App() {
-  const [receipts, setReceipts] = useState(receiptsData);
   return (
-    <div className="App-header">
+    <div className="App">
       <Header />
-
-      <main>
-        <div className="receipt-information">
-            {receipts.map((indOrder, index) => {
-              return <Receipt key={`${index} Receipt`} {...indOrder}  />;
-            })}
-        </div>
-      </main>
+      <Stocks />
     </div>
   );
 }
