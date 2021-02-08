@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import FetchStocksInfo from "../services/FetchStocks";
 import StocksInfo from "../components/StocksInfo";
 import FindDifferentStocks from "../components/SearchForStocks";
+import "../components/Stocks.css";
 
 
 function Stocks() {
@@ -9,6 +10,7 @@ function Stocks() {
   
   console.log(stockNames);
 
+  //retrieving the four stocks in the sample image
   useEffect(() => { ( async () => {
       const NASDAQ = await FetchStocksInfo("ndaq");
       const SPY = await FetchStocksInfo("spy");
@@ -19,15 +21,9 @@ function Stocks() {
   }, []);
   
   
-  // const stock = {
-  //   color: "white",
-  //   backgroundColor: "black"
-  //   fontSize: 24,
-  // }
-  
   return (
     <div className="stocks-app">
-      <h1 style={stockNamesStyles}>Stocks</h1>
+      <h1 className="app-title">Stocks</h1>
       {stockNames.map((indStock, index) => {
         return <StocksInfo {...indStock} key={index} />;
       })}
