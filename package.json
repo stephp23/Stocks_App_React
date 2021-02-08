@@ -3,10 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-=======
     "axios": "^0.21.1",
->>>>>>> fb13eebba1adbcc39778bf6d1dfc388ddd42cf2a
     "dotenv": "^8.2.0"
   },
   "scripts": {
